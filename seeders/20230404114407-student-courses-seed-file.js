@@ -4,10 +4,10 @@ let StudentCourseList = require('../jsonData/studentCourses.json')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('studentCourses', StudentCourseList, {})
+    await queryInterface.bulkInsert('StudentCourses', StudentCourseList, {})
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('studentCourses', null, {})
+    await queryInterface.bulkDelete('StudentCourses', null, {})
   }
 };

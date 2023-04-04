@@ -26,12 +26,12 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      avatarImage: {
+      avatar_image: {
         type: Sequelize.STRING
       },
       working: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: true
       },
       created_at: {
         allowNull: false,

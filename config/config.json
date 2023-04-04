@@ -18,7 +18,7 @@
   "production": {
     "username": "admin",
     "password": "password",
-    "database": "subjectsystem",
+    "database": "subject_system",
     "host": "subjectsystem.cw97md7s7hpj.ap-northeast-1.rds.amazonaws.com",
     "dialect": "mysql",
     "operatorsAliases": false

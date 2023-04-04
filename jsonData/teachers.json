@@ -7,7 +7,7 @@
 		"password": "mary1",
 		"email": "mary@com.com",
 		"address": "新竹市東區西門街50號",
-		"avatarImage": "https://i.imgur.com/JL93zDj.jpeg",
+		"avatar_image": "https://i.imgur.com/JL93zDj.jpeg",
 		"working": true,
 		"created_at": "2021-08-08 08:08:08",
 		"updated_at": "2021-08-08 08:08:08"
@@ -20,7 +20,7 @@
 		"password": "bob1",
 		"email": "bob@com.com",
 		"address": "新竹市北區北門街250號",
-		"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/783.jpgg",
+		"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/783.jpg",
 		"working": true,
 		"created_at": "2022-08-20 10:08:08",
 		"updated_at": "2022-08-20 10:08:08"
@@ -33,7 +33,7 @@
 		"password": "dany1",
 		"email": "dany@com.com",
 		"address": "新竹市東區南門街10號",
-		"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/299.jpg",
+		"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/299.jpg",
 		"working": true,
 		"created_at": "2022-03-08 10:08:08",
 		"updated_at": "2022-03-08 10:08:00"
@@ -46,7 +46,7 @@
 		"password": "amy1",
 		"email": "amy@com.com",
 		"address": "新竹市香山區中門街33號",
-		"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/781.jpg",
+		"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/781.jpg",
 		"working": true,
 		"created_at": "2021-03-03 09:08:08",
 		"updated_at": "2021-03-03 09:08:08"
@@ -59,7 +59,7 @@
 		"password": "john1",
 		"email": "john@com.com",
 		"address": "新竹香山區西門街69號",
-		"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/688.jpg",
+		"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/688.jpg",
 		"working": true,
 		"created_at": "2020-01-02 08:08:08",
 		"updated_at": "2020-01-02 08:08:08"
@@ -72,7 +72,7 @@
 		"password": "candy1",
 		"email": "candy@com.com",
 		"address": "新竹市東區中正路155號",
-		"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/780.jpg",
+		"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/780.jpg",
 		"working": true,
 		"created_at": "2021-03-03 09:08:08",
 		"updated_at": "2021-03-03 09:08:08"
