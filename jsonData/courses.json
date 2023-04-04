@@ -1,0 +1,182 @@
+[
+	{
+		"id" : 1,
+		"class_name" : "現代文學",
+		"class_time" : "2023-09-10 08:00:00",
+		"introduction" : "報導文學與新聞寫作、近現代翻譯文學、馬華文學、金庸武俠小說、近現代報刊與文化",
+		"department_id" : 1,
+		"teacher_id" : 1,
+		"created_at" : "2021-08-08 08:08:08",
+		"updated_at" : "2021-08-08 08:08:08"
+	},
+	{
+		"id" : 2,
+		"class_name" : "計算機結構 ",
+		"class_time" : "2023-09-11 10:00:00",
+		"introduction" : "1. computer abstractions, technology, and performance\n2. instructions: language of the computer\n3. arithmetic for computers\n",
+		"department_id" : 2,
+		"teacher_id" : 2,
+		"created_at" : "2022-08-20 10:08:08",
+		"updated_at" : "2022-08-20 10:08:08"
+	},
+	{
+		"id" : 3,
+		"class_name" : "地物流力",
+		"class_time" : "2023-09-12 13:00:00",
+		"introduction" : "This is an upper-level undergraduate and graduate-level course on geophysical waves and instability. We will focus on slowly evolving flow that is nearly in geostrophic balance and thus satisfies the \"Quasi-geostrophic (QG) approximation\".\n ",
+		"department_id" : 3,
+		"teacher_id" : 3,
+		"created_at" : "2022-03-08 10:08:05",
+		"updated_at" : "2022-03-08 10:08:05"
+	},
+	{
+		"id" : 4,
+		"class_name" : "遺傳學實驗",
+		"class_time" : "2023-09-13 14:10:00",
+		"introduction" : "F群選擇必修。",
+		"department_id" : 4,
+		"teacher_id" : 4,
+		"created_at" : "2021-03-03 09:08:08",
+		"updated_at" : "2021-03-03 09:08:08"
+	},
+	{
+		"id" : 5,
+		"class_name" : "貨幣銀行學一（01）",
+		"class_time" : "2023-09-14 15:00:00",
+		"introduction" : "若社科院有更大的教室，則選課人數上限增加至150人。",
+		"department_id" : 5,
+		"teacher_id" : 5,
+		"created_at" : "2020-01-02 08:08:08",
+		"updated_at" : "2020-01-02 08:08:08"
+	},
+	{
+		"id" : 6,
+		"class_name" : "翻譯及習作",
+		"class_time" : "2023-09-10 14:00:00",
+		"introduction" : "「翻譯及習作上」初選限大三學生選課，大四以上請於開學後洽授課教師辦理加選。\n「翻譯及習作」為全學年課程，上下學期需修習同一班次。若於第二學期加簽不同班\n次，需檢具「翻譯及習作上」之成績證明，經授課教師同意後始得加簽。",
+		"department_id" : 6,
+		"teacher_id" : 1,
+		"created_at" : "2021-08-08 08:08:08",
+		"updated_at" : "2021-08-08 08:08:08"
+	},
+	{
+		"id" : 7,
+		"class_name" : "普通心理學",
+		"class_time" : "2023-09-16 15:00:00",
+		"introduction" : "二擇一選修，請參考心理系、人類系課表",
+		"department_id" : 7,
+		"teacher_id" : 2,
+		"created_at" : "2022-08-20 10:08:08",
+		"updated_at" : "2022-08-20 10:08:08"
+	},
+	{
+		"id" : 8,
+		"class_name" : "工程與法律",
+		"class_time" : "2023-09-08 09:00:00",
+		"introduction" : "二門任選，惟\n只計入一門",
+		"department_id" : 8,
+		"teacher_id" : 3,
+		"created_at" : "2022-03-08 10:08:05",
+		"updated_at" : "2022-03-08 10:08:05"
+	},
+	{
+		"id" : 9,
+		"class_name" : "(A)東方哲學史群組",
+		"class_time" : "2023-09-19 15:10:00",
+		"introduction" : "先秦道家哲學、先秦儒家哲學、老子哲學、莊子哲學、禪宗哲學、周易哲學、易經解讀、宋明理學、隋唐佛學、兩漢哲學、魏晉玄學",
+		"department_id" : 9,
+		"teacher_id" : 4,
+		"created_at" : "2021-03-03 09:08:08",
+		"updated_at" : "2021-03-03 09:08:08"
+	},
+	{
+		"id" : 10,
+		"class_name" : "應用力學",
+		"class_time" : "2023-09-14 15:00:00",
+		"introduction" : "振動學、高等材料力學、有限元素法導論",
+		"department_id" : 10,
+		"teacher_id" : 5,
+		"created_at" : "2020-01-02 08:08:08",
+		"updated_at" : "2020-01-02 08:08:08"
+	},
+	{
+		"id" : 11,
+		"class_name" : "財金",
+		"class_time" : "2023-09-17 09:00:00",
+		"introduction" : "鼓勵性質，非畢業條件，歡迎同學多加選修。",
+		"department_id" : 11,
+		"teacher_id" : 2,
+		"created_at" : "2022-08-20 10:08:08",
+		"updated_at" : "2022-08-20 10:08:08"
+	},
+	{
+		"id" : 12,
+		"class_name" : "行銷管理專長",
+		"class_time" : "2023-09-11 16:00:00",
+		"introduction" : "大三起可選擇修習模組課程",
+		"department_id" : 12,
+		"teacher_id" : 3,
+		"created_at" : "2022-03-08 10:08:05",
+		"updated_at" : "2022-03-08 10:08:05"
+	},
+	{
+		"id" : 13,
+		"class_name" : "計算機概論",
+		"class_time" : "2023-09-12 11:00:00",
+		"introduction" : "限學號雙號且限本系所學生(含輔\n系、雙修生)。",
+		"department_id" : 13,
+		"teacher_id" : 3,
+		"created_at" : "2022-03-08 10:08:05",
+		"updated_at" : "2022-03-08 10:08:05"
+	},
+	{
+		"id" : 14,
+		"class_name" : "普通化學甲上下",
+		"class_time" : "2023-09-13 08:00:00",
+		"introduction" : "1.充抵普通化學甲上 補修普通化學甲下 由學生主系指定",
+		"department_id" : 14,
+		"teacher_id" : 3,
+		"created_at" : "2022-03-08 10:08:05",
+		"updated_at" : "2022-03-08 10:08:05"
+	},
+	{
+		"id" : 15,
+		"class_name" : "通識",
+		"class_time" : "2023-09-16 08:30:00",
+		"introduction" : "因牙醫系只有一、二年級在校本部上課，並三年級之後基礎醫學課業繁重，建議同學於大一至二上儘量將通識課修完，以免造成日後學習的負擔",
+		"department_id" : 15,
+		"teacher_id" : 4,
+		"created_at" : "2021-03-03 09:08:08",
+		"updated_at" : "2021-03-03 09:08:08"
+	},
+	{
+		"id" : 16,
+		"class_name" : "民法總則",
+		"class_time" : "2023-09-16 09:30:00",
+		"introduction" : "102學年度起「民法總則」由4學分改為3學分，尚未修習通過者應以3學分之「民法總則」並加上任一門本系選修課程替代之，多餘學分計入系內選修",
+		"department_id" : 16,
+		"teacher_id" : 5,
+		"created_at" : "2020-01-02 08:08:08",
+		"updated_at" : "2020-01-02 08:08:08"
+	},
+	{
+		"id" : 17,
+		"class_name" : "統計物理導論",
+		"class_time" : "2023-09-21 10:30:00",
+		"introduction" : "系訂選修科目（12學分）：可由數學系開設的選修科目選修(除微積分1234、微乙、微乙上下以及專題演講一、二、三、四)，也可選修物理、資工、經濟、財金等系所部分課程以及課號為NCTS開頭之課程（選修科目列表：系選科目一覽表2022版、領域專長課程）。選修之多餘學分可計入一般選修。",
+		"department_id" : 17,
+		"teacher_id" : 6,
+		"created_at" : "2020-01-02 08:08:08",
+		"updated_at" : "2020-01-02 08:08:08"
+	},
+	{
+		"id" : 18,
+		"class_name" : "倫理學",
+		"class_time" : "2023-09-19 10:30:00",
+		"introduction" : "基礎課程建議選修",
+		"department_id" : 18,
+		"teacher_id" : 4,
+		"created_at" : "2020-01-02 08:08:08",
+		"updated_at" : "2020-01-02 08:08:08"
+	}
+]

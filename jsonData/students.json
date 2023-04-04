@@ -1,0 +1,67 @@
+[
+	{
+		"id" : 1,
+		"name" : "mike",
+		"phone" : "0977888999",
+		"account" : "mike",
+		"password" : "mike1",
+		"email" : "mike@com.com",
+		"address" : "新竹市西區南大路50號",
+		"avatarImage" : "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/783.jpgg",
+		"learning" : true,
+		"created_at" : "2023-09-03 08:08:08",
+		"updated_at" : "2023-09-03 08:08:08"
+	},
+	{
+		"id" : 2,
+		"name" : "tom",
+		"phone" : "0911222333",
+		"account" : "tom",
+		"password" : "tom1",
+		"email" : "tom@com.com",
+		"address" : "新竹市北區中央路35號",
+		"avatarImage" : "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/783.jpgg",
+		"learning" : true,
+		"created_at" : "2023-09-08 08:08:08",
+		"updated_at" : "2023-09-08 08:08:08"
+	},
+	{
+		"id" : 3,
+		"name" : "sam",
+		"phone" : "0944555666",
+		"account" : "sam",
+		"password" : "sam1",
+		"email" : "sam@com.com",
+		"address" : "新竹市東區學府路80號",
+		"avatarImage" : "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/299.jpg",
+		"learning" : true,
+		"created_at" : "2023-09-14 08:08:08",
+		"updated_at" : "2023-09-14 08:08:08"
+	},
+	{
+		"id" : 4,
+		"name" : "duck",
+		"phone" : "0912457836",
+		"account" : "duck",
+		"password" : "duck1",
+		"email" : "duck@com.com",
+		"address" : "新竹市香山區中大路53號",
+		"avatarImage" : "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/781.jpg",
+		"learning" : true,
+		"created_at" : "2021-02-01 09:08:08",
+		"updated_at" : "2021-02-01 09:08:08"
+	},
+	{
+		"id" : 5,
+		"name" : "jim",
+		"phone" : "0978945623",
+		"account" : "jim",
+		"password" : "jim1",
+		"email" : "jim@com.com",
+		"address" : "新竹香山區食品路333號",
+		"avatarImage" : "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/688.jpg",
+		"learning" : true,
+		"created_at" : "2021-02-01 09:08:08",
+		"updated_at" : "2021-02-01 09:08:08"
+	}
+]
