@@ -1,25 +1,25 @@
 const express = require('express')
 const router = express.Router()
-const { Teacher } = require('../../../models')
+const { Student } = require('../../../models')
 
 router.post('/', async (req, res, next) => {
   try {
-    const { name, phone, password, email, address, avatar_image, working, account } = req.body
-    const checkAccount = await Teacher.findOne({ where: { account: req.body.account }})
+    const { name, phone, password, email, address, avatar_image, learning, account } = req.body
+    const checkAccount = await Student.findOne({ where: { account: req.body.account } })
     if (checkAccount) {
       return res.json({ status: 'error', message: '這個帳號己經註冊了。' })
     }
-    if (!name || !phone || !password || !email || !address || !avatar_image || !working) {
+    if (!name || !phone || !password || !email || !address || !avatar_image || !learning) {
       return res.json({ status: 'error', message: '所有資訊必需填寫。' })
     }
-    const data = await Teacher.create({
+    const data = await Student.create({
       name,
       email,
       phone,
       password,
       address,
       avatar_image,
-      working,
+      learning,
       account
     })
     res.status(200).json(data.toJSON())
@@ -29,7 +29,7 @@ router.post('/', async (req, res, next) => {
 })
 router.get('/', async (req, res, next) => {
   try {
-    const data = await Teacher.findAll({
+    const data = await Student.findAll({
       raw: true,
       attributes: {
         exclude: [
@@ -46,7 +46,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:t_id', async (req, res, next) => {
   try {
-    const data = await Teacher.findOne({
+    const data = await Student.findOne({
       where: {
         id: Number(req.params.t_id)
       },
@@ -67,16 +67,18 @@ router.get('/:t_id', async (req, res, next) => {
 })
 router.put('/:t_id', async (req, res, next) => {
   try {
-    const [checkAccount, teacher] = await Promise.all([Teacher.findOne({ where: { account: req.body.account } }), Teacher.findOne({ where: { 
-      id: Number(req.params.t_id)
-    }})])
+    const [checkAccount, student] = await Promise.all([Student.findOne({ where: { account: req.body.account } }), Student.findOne({
+      where: {
+        id: Number(req.params.t_id)
+      }
+    })])
     if (!checkAccount) {
       return res.json({ status: 'error', message: '沒有這個帳號。' })
     }
     if (Number(checkAccount.id) !== Number(req.params.t_id)) {
-      return res.status(200).json({ status: 'error', message: '只能修改自己的帳號。' })
+      return res.status(401).json({ status: 'error', message: '只能修改自己的帳號。' })
     }
-    await teacher.update({...req.body})
+    await student.update({ ...req.body })
     return res.status(200).json({ status: 'success', message: '使用者編輯成功' })
   } catch (err) {
     next(err)
@@ -84,15 +86,15 @@ router.put('/:t_id', async (req, res, next) => {
 })
 router.delete('/:t_id', async (req, res, next) => {
   try {
-    const [teacher] = await Promise.all([Teacher.findOne({
+    const [student] = await Promise.all([Student.findOne({
       where: {
         id: Number(req.params.t_id)
       }
     })])
-    if (!teacher) {
+    if (!student) {
       return res.status(404).json({ status: 'error', message: '沒有這個帳號。' })
     }
-    await teacher.destroy({
+    await student.destroy({
       where: { id: Number(req.params.t_id) }
     })
     return res.status(200).json({ status: 'success', message: '刪除成功' })

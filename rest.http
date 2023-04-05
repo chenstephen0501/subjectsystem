@@ -3,13 +3,13 @@
 GET {{baseUrl}}/ HTTP/1.1
 Content-Type: application/json
 
-###
+### 教師路由
 GET {{baseUrl}}/teachers HTTP/1.1
 Content-Type: application/json
 
 
 ###
-GET {{baseUrl}}/teachers/2 HTTP/1.1
+GET {{baseUrl}}/teachers/1 HTTP/1.1
 Content-Type: application/json
 
 
@@ -28,20 +28,68 @@ Content-Type: application/json
 	"working": true
 }
 
-##
-PUT  {{baseUrl}}/teachers HTTP/1.1
+###
+PUT {{baseUrl}}/teachers/21 HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "paggy",
+  "name": "yui",
   "phone": "0989898989",
 	"account": "judy",
-	"password": "judy1",
+	"password": "judy",
 	"email": "judy@com.com",
 	"address": "新竹市香山區食品街50號",
 	"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
 	"working": true
 }
+
+###
+DELETE  {{baseUrl}}/teachers/20 HTTP/1.1
+Content-Type: application/json
+
+### 學生路由
+GET {{baseUrl}}/students HTTP/1.1
+Content-Type: application/json
+
+
+###
+GET {{baseUrl}}/students/1 HTTP/1.1
+Content-Type: application/json
+
+
+###
+POST {{baseUrl}}/students HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "joe",
+  "phone": "0989898989",
+	"account": "joe",
+	"password": "joe1",
+	"email": "joe@com.com",
+	"address": "新竹市香山區食品街50號",
+	"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+	"learning": true
+}
+
+###
+PUT {{baseUrl}}/students/7 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "yui",
+  "phone": "0989898989",
+	"account": "joe",
+	"password": "judy",
+	"email": "judy@com.com",
+	"address": "新竹市香山區食品街50號",
+	"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+	"learing": true
+}
+
+###
+DELETE  {{baseUrl}}/students/7 HTTP/1.1
+Content-Type: application/json
 
 ###
 # @name login
