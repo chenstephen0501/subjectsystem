@@ -8,10 +8,10 @@ router.post('/', async (req, res, next) => {
     const { className } = req.body
     const checkClassName = await Course.findOne({ where: { className } })
     if (checkClassName) {
-      return res.json({ status: 'error', message: '己經有這門課程。' })
+      return res.status(404).json({ status: 'error', message: '己經有這門課程。' })
     }
     if (!className || className.trim() === "") {
-      return res.json({ status: 'error', message: '必需輸入課程名稱。' })
+      return res.status(404).json({ status: 'error', message: '必需輸入課程名稱。' })
     }
     const data = await Course.create({
       ...req.body
@@ -103,7 +103,7 @@ router.put('/:c_id', async (req, res, next) => {
       }
     })])
     if (!checkClassName) {
-      return res.json({ status: 'error', message: '沒有這問課程。' })
+      return res.status(404).json({ status: 'error', message: '沒有這問課程。' })
     }
     if (Number(checkClassName.id) !== Number(req.params.c_id)) {
       return res.status(200).json({ status: 'error', message: '只能修改這門課程。' })

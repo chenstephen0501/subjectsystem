@@ -8,10 +8,10 @@ router.post('/', async (req, res, next) => {
     const { name } = req.body
     const checkName = await Department.findOne({ where: { name } })
     if (checkName) {
-      return res.json({ status: 'error', message: '己經有這個科系。' })
+      return res.status(404).json({ status: 'error', message: '己經有這個科系。' })
     }
     if (!name || name.trim() === "") {
-      return res.json({ status: 'error', message: '必需輸入系名。' })
+      return res.status(404).json({ status: 'error', message: '必需輸入系名。' })
     }
     const data = await Department.create({
       name

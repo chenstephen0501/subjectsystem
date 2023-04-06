@@ -8,10 +8,10 @@ router.post('/', async (req, res, next) => {
     const { name, phone, password, email, address, avatarImage, learning, account } = req.body
     const checkAccount = await Student.findOne({ where: { account: req.body.account } })
     if (checkAccount) {
-      return res.json({ status: 'error', message: '這個帳號己經註冊了。' })
+      return res.status(404).json({ status: 'error', message: '這個帳號己經註冊了。' })
     }
     if (!name || !phone || !password || !email || !address || !avatarImage || !learning) {
-      return res.json({ status: 'error', message: '所有資訊必需填寫。' })
+      return res.status(404).json({ status: 'error', message: '所有資訊必需填寫。' })
     }
     const data = await Student.create({
       name,
@@ -76,7 +76,7 @@ router.put('/:s_id', async (req, res, next) => {
       }
     })])
     if (!checkAccount) {
-      return res.json({ status: 'error', message: '沒有這個帳號。' })
+      return res.status(404).json({ status: 'error', message: '沒有這個帳號。' })
     }
     if (Number(checkAccount.id) !== Number(req.params.s_id)) {
       return res.status(401).json({ status: 'error', message: '只能修改自己的帳號。' })
