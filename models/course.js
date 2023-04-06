@@ -14,14 +14,14 @@ module.exports = (sequelize, DataTypes) => {
       Course.belongsTo(models.Department, { foreignKey: 'departmentId' })
       Course.belongsTo(models.Teacher, {
         foreignKey: 'teacherId' })
-      Course.hasMany(models.Course, { foreignKey: 'courseId' })
+      Course.hasMany(models.StudentCourse, { foreignKey: 'courseId' })
     }
   };
   Course.init({
-    class_name: DataTypes.STRING,
-    class_time: DataTypes.STRING,
+    className: DataTypes.STRING,
+    classTime: DataTypes.STRING,
     introduction: DataTypes.TEXT,
-    department_id: DataTypes.STRING
+    departmentId: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Course',

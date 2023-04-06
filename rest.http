@@ -24,12 +24,12 @@ Content-Type: application/json
 	"password": "judy1",
 	"email": "judy@com.com",
 	"address": "新竹市香山區食品街50號",
-	"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+	"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
 	"working": true
 }
 
 ###
-PUT {{baseUrl}}/teachers/21 HTTP/1.1
+PUT {{baseUrl}}/teachers/7 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -39,12 +39,16 @@ Content-Type: application/json
 	"password": "judy",
 	"email": "judy@com.com",
 	"address": "新竹市香山區食品街50號",
-	"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+	"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
 	"working": true
 }
 
 ###
-DELETE  {{baseUrl}}/teachers/20 HTTP/1.1
+DELETE  {{baseUrl}}/teachers/8 HTTP/1.1
+Content-Type: application/json
+
+###
+GET {{baseUrl}}/teachers/6/courses HTTP/1.1
 Content-Type: application/json
 
 ### 學生路由
@@ -68,12 +72,12 @@ Content-Type: application/json
 	"password": "joe1",
 	"email": "joe@com.com",
 	"address": "新竹市香山區食品街50號",
-	"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+	"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
 	"learning": true
 }
 
 ###
-PUT {{baseUrl}}/students/7 HTTP/1.1
+PUT {{baseUrl}}/students/8 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -83,13 +87,128 @@ Content-Type: application/json
 	"password": "judy",
 	"email": "judy@com.com",
 	"address": "新竹市香山區食品街50號",
-	"avatar_image": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+	"avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
 	"learing": true
 }
 
 ###
-DELETE  {{baseUrl}}/students/7 HTTP/1.1
+DELETE  {{baseUrl}}/students/8 HTTP/1.1
 Content-Type: application/json
+
+###
+GET {{baseUrl}}/students/5/courses HTTP/1.1
+Content-Type: application/json
+
+### 科系路由
+GET {{baseUrl}}/departments HTTP/1.1
+Content-Type: application/json
+
+
+###
+GET {{baseUrl}}/departments/1 HTTP/1.1
+Content-Type: application/json
+
+
+###
+POST {{baseUrl}}/departments HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "大地系"
+}
+
+###
+PUT {{baseUrl}}/departments/21 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "火山系"
+}
+
+###
+DELETE  {{baseUrl}}/departments/21 HTTP/1.1
+Content-Type: application/json
+
+### 講師開課路由
+GET {{baseUrl}}/courses HTTP/1.1
+Content-Type: application/json
+
+
+###
+GET {{baseUrl}}/courses/18 HTTP/1.1
+Content-Type: application/json
+
+
+###
+POST {{baseUrl}}/courses HTTP/1.1
+Content-Type: application/json
+
+{
+	"className" : "古典文學1",
+	"classTime" : "2023-09-21 08:00:05",		
+  "introduction" : "李白詩、李商隱詩、宋詩選讀、蘇辛詞、清詞選、紅樓夢",
+	"departmentId" : 1,
+	"teacherId" : 1
+}
+
+###
+PUT {{baseUrl}}/courses/21 HTTP/1.1
+Content-Type: application/json
+
+{
+	"className" : "古典文",
+	"classTime" : "2023-09-21 08:00:05",		
+  "introduction" : "李白詩、李商隱詩、宋詩選讀、蘇辛詞、清詞選、紅樓夢",
+	"departmentId" : 1,
+	"teacherId" : 1
+}
+
+###
+DELETE  {{baseUrl}}/courses/21 HTTP/1.1
+Content-Type: application/json
+###
+GET {{baseUrl}}/courses/18/students HTTP/1.1
+Content-Type: application/json
+
+
+### 學生選課路由
+GET {{baseUrl}}/studentCourses HTTP/1.1
+Content-Type: application/json
+
+
+###
+GET {{baseUrl}}/studentCourses/1 HTTP/1.1
+Content-Type: application/json
+
+
+###
+POST {{baseUrl}}/studentCourses HTTP/1.1
+Content-Type: application/json
+
+{
+	"className" : "古典文學1",
+	"classTime" : "2023-09-21 08:00:05",		
+  "introduction" : "李白詩、李商隱詩、宋詩選讀、蘇辛詞、清詞選、紅樓夢",
+	"departmentId" : 1,
+	"teacherId" : 1
+}
+
+###
+PUT {{baseUrl}}/studentCourses/21 HTTP/1.1
+Content-Type: application/json
+
+{
+	"className" : "古典文",
+	"classTime" : "2023-09-21 08:00:05",		
+  "introduction" : "李白詩、李商隱詩、宋詩選讀、蘇辛詞、清詞選、紅樓夢",
+	"departmentId" : 1,
+	"teacherId" : 1
+}
+
+###
+DELETE  {{baseUrl}}/studentCourses/21 HTTP/1.1
+Content-Type: application/json
+
 
 ###
 # @name login

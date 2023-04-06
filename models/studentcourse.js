@@ -16,11 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   StudentCourse.init({
-    course_id: DataTypes.INTEGER
+    courseId: DataTypes.INTEGER,
+    studentId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'StudentCourse',
-    tableName: 'StudentsCourses',
+    tableName: 'StudentCourses',
     underscored: true,
   });
   return StudentCourse;
