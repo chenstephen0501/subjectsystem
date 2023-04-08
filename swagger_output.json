@@ -1,0 +1,987 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "1.0.0",
+    "title": "Subject System REST API",
+    "description": ""
+  },
+  "tags": [
+    {
+      "name": "Teacher",
+      "description": "everything about teachers",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://subjectsystem.first-aws-project.com"
+      }
+    },
+    {
+      "name": "Student",
+      "description": "everything about students",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://subjectsystem.first-aws-project.com"
+      }
+    },
+    {
+      "name": "Department",
+      "description": "everything about departments",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://subjectsystem.first-aws-project.com"
+      }
+    },
+    {
+      "name": "Course",
+      "description": "everything about courses",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://subjectsystem.first-aws-project.com"
+      }
+    },
+    {
+      "name": "StudentCourse",
+      "description": "everything about studentcourses"
+    },
+    {
+      "name": "Home",
+      "description": "Hello World"
+    }
+  ],
+  "securityDefinitions": {},
+  "paths": {
+    "/api/studentcourses/": {
+      "post": {
+        "tags": [
+          "StudentCourse"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": {
+                    "example": "any"
+                  },
+                  "courseId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "StudentCourse"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": {
+                    "example": "any"
+                  },
+                  "courseId": {
+                    "example": "any"
+                  },
+                  "newCourseId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/studentcourses/{c_id}": {
+      "delete": {
+        "tags": [
+          "StudentCourse"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "c_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "studentId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/courses/": {
+      "post": {
+        "tags": [
+          "Course"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "className": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Course"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/courses/{c_id}": {
+      "get": {
+        "tags": [
+          "Course"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "c_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Course"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "c_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Course"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "c_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/courses/{c_id}/students": {
+      "get": {
+        "tags": [
+          "Course"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "c_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/teachers/": {
+      "post": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "account": {
+                    "example": "any"
+                  },
+                  "name": {
+                    "example": "any"
+                  },
+                  "phone": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  "address": {
+                    "example": "any"
+                  },
+                  "avatarImage": {
+                    "example": "any"
+                  },
+                  "working": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/teachers/{t_id}": {
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "t_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "t_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "account": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "t_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/teachers/{t_id}/courses": {
+      "get": {
+        "tags": [
+          "Teacher"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "t_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/students/": {
+      "post": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "account": {
+                    "example": "any"
+                  },
+                  "name": {
+                    "example": "any"
+                  },
+                  "phone": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  "address": {
+                    "example": "any"
+                  },
+                  "avatarImage": {
+                    "example": "any"
+                  },
+                  "learning": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/students/{s_id}": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "s_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "s_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "account": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "s_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/students/{s_id}/courses": {
+      "get": {
+        "tags": [
+          "Student"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "s_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/departments/": {
+      "post": {
+        "tags": [
+          "Department"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Department"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/departments/{d_id}": {
+      "get": {
+        "tags": [
+          "Department"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "d_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Department"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "d_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Department"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "d_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Teacher": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "mary"
+          },
+          "phone": {
+            "type": "string",
+            "example": "0988255888"
+          },
+          "account": {
+            "type": "string",
+            "example": "mary"
+          },
+          "password": {
+            "type": "string",
+            "example": "mary1"
+          },
+          "email": {
+            "type": "string",
+            "example": "mary@com.com"
+          },
+          "address": {
+            "type": "string",
+            "example": "新竹市東區西門街50號"
+          },
+          "avatar_image": {
+            "type": "string",
+            "example": "https://i.imgur.com/JL93zDj.jpeg"
+          },
+          "working": {
+            "type": "boolean",
+            "example": true
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2021-08-08 08:08:08"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2021-08-08 08:08:08"
+          }
+        }
+      },
+      "Student": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "mike"
+          },
+          "phone": {
+            "type": "string",
+            "example": "0977888999"
+          },
+          "account": {
+            "type": "string",
+            "example": "mike"
+          },
+          "password": {
+            "type": "string",
+            "example": "mike1"
+          },
+          "email": {
+            "type": "string",
+            "example": "mike@com.com"
+          },
+          "address": {
+            "type": "string",
+            "example": "新竹市西區南大路50號"
+          },
+          "avatar_image": {
+            "type": "string",
+            "example": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/783.jpgg"
+          },
+          "learning": {
+            "type": "boolean",
+            "example": true
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2023-09-03 08:08:08"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2023-09-03 08:08:08"
+          }
+        }
+      },
+      "Department": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "中國文學系"
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2021-08-08 08:08:08"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2021-08-08 08:08:08"
+          }
+        }
+      },
+      "Course": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "class_name": {
+            "type": "string",
+            "example": "現代文學"
+          },
+          "class_time": {
+            "type": "string",
+            "example": "2023-09-10 08:00:00"
+          },
+          "introduction": {
+            "type": "string",
+            "example": "報導文學與新聞寫作、近現代翻譯文學、馬華文學、金庸武俠小說、近現代報刊與文化"
+          },
+          "department_id": {
+            "type": "number",
+            "example": 1
+          },
+          "teacher_id": {
+            "type": "number",
+            "example": 1
+          },
+          "created_at": {
+            "type": "string",
+            "example": "2021-08-08 08:08:08"
+          },
+          "updated_at": {
+            "type": "string",
+            "example": "2021-08-08 08:08:08"
+          }
+        }
+      },
+      "StudentCourse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "course_id": {
+            "type": "number",
+            "example": 1
+          },
+          "student_id": {
+            "type": "number",
+            "example": 1
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Subjectsystem",
+    "url": "https://subjectsystem.first-aws-project.com/api-doc"
+  }
+}

@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{baseUrl}}/teachers/9 HTTP/1.1
+PUT {{baseUrl}}/teachers/11 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -44,7 +44,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE  {{baseUrl}}/teachers/9 HTTP/1.1
+DELETE  {{baseUrl}}/teachers/11 HTTP/1.1
 Content-Type: application/json
 
 ###
@@ -54,7 +54,6 @@ Content-Type: application/json
 ### 學生路由
 GET {{baseUrl}}/students HTTP/1.1
 Content-Type: application/json
-
 
 ###
 GET {{baseUrl}}/students/1 HTTP/1.1
@@ -77,7 +76,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{baseUrl}}/students/9 HTTP/1.1
+PUT {{baseUrl}}/students/10 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -92,7 +91,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE  {{baseUrl}}/students/9 HTTP/1.1
+DELETE  {{baseUrl}}/students/10 HTTP/1.1
 Content-Type: application/json
 
 ###
@@ -103,11 +102,9 @@ Content-Type: application/json
 GET {{baseUrl}}/departments HTTP/1.1
 Content-Type: application/json
 
-
 ###
 GET {{baseUrl}}/departments/1 HTTP/1.1
 Content-Type: application/json
-
 
 ###
 POST {{baseUrl}}/departments HTTP/1.1
@@ -118,7 +115,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{baseUrl}}/departments/24 HTTP/1.1
+PUT {{baseUrl}}/departments/25 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -126,7 +123,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE  {{baseUrl}}/departments/24 HTTP/1.1
+DELETE  {{baseUrl}}/departments/25 HTTP/1.1
 Content-Type: application/json
 
 ### 講師開課路由
@@ -136,7 +133,6 @@ Content-Type: application/json
 ###
 GET {{baseUrl}}/courses/18 HTTP/1.1
 Content-Type: application/json
-
 
 ###
 POST {{baseUrl}}/courses HTTP/1.1
@@ -151,7 +147,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{baseUrl}}/courses/22 HTTP/1.1
+PUT {{baseUrl}}/courses/23 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -163,7 +159,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE  {{baseUrl}}/courses/22 HTTP/1.1
+DELETE  {{baseUrl}}/courses/23 HTTP/1.1
 Content-Type: application/json
 ###
 GET {{baseUrl}}/courses/18/students HTTP/1.1

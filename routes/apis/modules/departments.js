@@ -4,6 +4,7 @@ const { Department } = require('../../../models')
 
 // 21.新增一門科系
 router.post('/', async (req, res, next) => {
+  // #swagger.tags = ['Department']
   try {
     const { name } = req.body
     const checkName = await Department.findOne({ where: { name } })
@@ -23,6 +24,7 @@ router.post('/', async (req, res, next) => {
 })
 // 19.查詢所有科系
 router.get('/', async (req, res, next) => {
+  // #swagger.tags = ['Department']
   try {
     const data = await Department.findAll({
       raw: true,
@@ -40,6 +42,7 @@ router.get('/', async (req, res, next) => {
 })
 // 20.查詢一門科系
 router.get('/:d_id', async (req, res, next) => {
+  // #swagger.tags = ['Department']
   try {
     const data = await Department.findOne({
       where: {
@@ -62,6 +65,7 @@ router.get('/:d_id', async (req, res, next) => {
 })
 // 22.修改一門科系
 router.put('/:d_id', async (req, res, next) => {
+  // #swagger.tags = ['Department']
   try {
     const  { name } = req.body
     const [checkDepartment]= await Promise.all([Department.findOne({
@@ -83,6 +87,7 @@ router.put('/:d_id', async (req, res, next) => {
 })
 // 23.刪除一問科系
 router.delete('/:d_id', async (req, res, next) => {
+  // #swagger.tags = ['Department']
   try {
     const [checkDepartment] = await Promise.all([Department.findOne({
       where: {

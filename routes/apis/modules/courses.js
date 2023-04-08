@@ -4,6 +4,7 @@ const { Department, Teacher, Course, sequelize, StudentCourse, Student } = requi
 
 //  5.新增一門課程
 router.post('/', async (req, res, next) => {
+  // #swagger.tags = ['Course']
   try {
     const { className } = req.body
     const checkClassName = await Course.findOne({ where: { className } })
@@ -23,6 +24,7 @@ router.post('/', async (req, res, next) => {
 })
 //  1.查詣所有課程
 router.get('/', async (req, res, next) => {
+  // #swagger.tags = ['Course']
   try {
     let data = await Course.findAll({
       raw: true,
@@ -60,6 +62,7 @@ router.get('/', async (req, res, next) => {
 })
 // 13.查詢一門課程
 router.get('/:c_id', async (req, res, next) => {
+  // #swagger.tags = ['Course']
   try {
     let data = await Course.findOne({
       where: {
@@ -96,6 +99,7 @@ router.get('/:c_id', async (req, res, next) => {
 })
 // 6. 修改一門課程
 router.put('/:c_id', async (req, res, next) => {
+  // #swagger.tags = ['Course']
   try {
     const [checkClassName] = await Promise.all([Course.findOne({
       where: {
@@ -116,6 +120,7 @@ router.put('/:c_id', async (req, res, next) => {
 })
 // 7.刪除一門課程
 router.delete('/:c_id', async (req, res, next) => {
+  // #swagger.tags = ['Course']
   try {
     const [checkClassName] = await Promise.all([Course.findOne({
       where: {
@@ -135,6 +140,7 @@ router.delete('/:c_id', async (req, res, next) => {
 })
 // 28. 查詢一門課程所有學生清單
 router.get('/:c_id/students', async (req, res, next) => {
+  // #swagger.tags = ['Course']
   try {
     let data = await Course.findOne({
       where: {

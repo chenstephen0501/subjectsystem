@@ -4,6 +4,7 @@ const { Teacher, Course, Department } = require('../../../models')
 
 // 4.新增一位講師
 router.post('/', async (req, res, next) => {
+  // #swagger.tags = ['Teacher']
   try {
     const { name, phone, password, email, address, avatarImage, working, account } = req.body
     const checkAccount = await Teacher.findOne({ where: { account: req.body.account }})
@@ -30,9 +31,9 @@ router.post('/', async (req, res, next) => {
 })
 // 2.查詢所有講師
 router.get('/', async (req, res, next) => {
+  // #swagger.tags = ['Teacher']
   try {
-    const data = await Teacher.findAll({
-      raw: true,
+    let data = await Teacher.findAll({
       attributes: {
         exclude: [
           'password',
@@ -40,6 +41,7 @@ router.get('/', async (req, res, next) => {
         ]
       },
     })
+    data = data.map((i, _index) => (i = {...i.dataValues }))
     res.status(200).json(data)
   } catch (err) {
     next(err)
@@ -47,6 +49,7 @@ router.get('/', async (req, res, next) => {
 })
 // 11.查詢一位講師
 router.get('/:t_id', async (req, res, next) => {
+  // #swagger.tags = ['Teacher']
   try {
     const data = await Teacher.findOne({
       where: {
@@ -69,6 +72,7 @@ router.get('/:t_id', async (req, res, next) => {
 })
 // 10.修改一位講師
 router.put('/:t_id', async (req, res, next) => {
+  // #swagger.tags = ['Teacher']
   try {
     const [checkAccount, teacher] = await Promise.all([Teacher.findOne({ where: { account: req.body.account } }), Teacher.findOne({ where: { 
       id: Number(req.params.t_id)
@@ -87,6 +91,7 @@ router.put('/:t_id', async (req, res, next) => {
 })
 // 9.刪除一位講師
 router.delete('/:t_id', async (req, res, next) => {
+  // #swagger.tags = ['Teacher']
   try {
     const [teacher] = await Promise.all([Teacher.findOne({
       where: {
@@ -106,6 +111,7 @@ router.delete('/:t_id', async (req, res, next) => {
 })
 // 3.教師所開課程
 router.get('/:t_id/courses', async (req, res, next) => {
+  // #swagger.tags = ['Teacher']
   try {
     let data = await Teacher.findOne({
       where: {

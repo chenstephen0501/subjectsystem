@@ -4,6 +4,7 @@ const { Student, StudentCourse, Course, Department, Teacher } = require('../../.
 
 // 16.新增一位學生
 router.post('/', async (req, res, next) => {
+  // #swagger.tags = ['Student']
   try {
     const { name, phone, password, email, address, avatarImage, learning, account } = req.body
     const checkAccount = await Student.findOne({ where: { account: req.body.account } })
@@ -30,8 +31,9 @@ router.post('/', async (req, res, next) => {
 })
 // 14. 查詢所有學生
 router.get('/', async (req, res, next) => {
+  // #swagger.tags = ['Student']
   try {
-    const data = await Student.findAll({
+    let data = await Student.findAll({
       raw: true,
       attributes: {
         exclude: [
@@ -40,6 +42,10 @@ router.get('/', async (req, res, next) => {
         ]
       },
     })
+    data = data.map((i, _index) => {
+      i.learning = Number(i.learning) === 1 ? true : false
+      return i
+    })
     res.status(200).json(data)
   } catch (err) {
     next(err)
@@ -47,6 +53,7 @@ router.get('/', async (req, res, next) => {
 })
 // 15.查詢一位學生
 router.get('/:s_id', async (req, res, next) => {
+  // #swagger.tags = ['Student']
   try {
     const data = await Student.findOne({
       where: {
@@ -69,6 +76,7 @@ router.get('/:s_id', async (req, res, next) => {
 })
 // 17.修改一位學生
 router.put('/:s_id', async (req, res, next) => {
+  // #swagger.tags = ['Student']
   try {
     const [checkAccount, student] = await Promise.all([Student.findOne({ where: { account: req.body.account } }), Student.findOne({
       where: {
@@ -89,6 +97,7 @@ router.put('/:s_id', async (req, res, next) => {
 })
 // 18.刪除一位學生
 router.delete('/:s_id', async (req, res, next) => {
+  // #swagger.tags = ['Student']
   try {
     const [student] = await Promise.all([Student.findOne({
       where: {
@@ -108,6 +117,7 @@ router.delete('/:s_id', async (req, res, next) => {
 })
 // 24.學生查詢自己所有課程
 router.get('/:s_id/courses', async (req, res, next) => {
+  // #swagger.tags = ['Student']
   try {
     let data = await StudentCourse.findAll({
       raw: true,

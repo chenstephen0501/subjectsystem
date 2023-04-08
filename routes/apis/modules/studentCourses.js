@@ -4,6 +4,7 @@ const { Department, Teacher, Course, sequelize, StudentCourse, Student } = requi
 
 //  25.學生選擇一門課程
 router.post('/', async (req, res, next) => {
+  // #swagger.tags = ['StudentCourse']
   try {
     const { studentId, courseId } = req.body
     if (!studentId || !courseId) {
@@ -30,6 +31,7 @@ router.post('/', async (req, res, next) => {
 })
 // 26. 學生修改一門選修課程
 router.put('/', async (req, res, next) => {
+  // #swagger.tags = ['StudentCourse']
   try {
     const { studentId, courseId, newCourseId } = req.body
     if (!studentId || !courseId) {
@@ -55,10 +57,10 @@ router.put('/', async (req, res, next) => {
 })
 // 27. 學生刪除一門課程 
 router.delete('/:c_id', async (req, res, next) => {
+  // #swagger.tags = ['StudentCourse']
   try {
     const { studentId } = req.body
     const courseId  = req.params.c_id
-    
     if (!studentId || !courseId) {
       return res.status(404).json({ status: 'error', message: '沒有選擇課程。' })
     }
