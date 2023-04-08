@@ -13,13 +13,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.17.3",
+    "mocha": "^10.2.0",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.22",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
+    "supertest": "^6.3.3",
     "swagger-autogen": "^2.23.1",
     "swagger-ui-express": "^4.6.2"
   }
