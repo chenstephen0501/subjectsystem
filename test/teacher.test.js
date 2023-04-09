@@ -1,7 +1,10 @@
 const { expect } = require('chai')
+const { application } = require('express')
 const supertest = require('supertest')
 
+// const app = require('../app')
 const api = supertest('http://localhost:3000/api')
+// const api = supertest(app)
 let t_id
 
 describe('Teachers 路由測試', () => {
@@ -81,11 +84,21 @@ describe('Teachers 路由測試', () => {
           done()
         })
     })
+    // after((done) => {
+    //   api.delete(`/teachers/${t_id}`)
+    //   .expect(200)
+    //   .end((err, res) => {
+    //     if (err) {
+    //       done(err)
+    //     }
+    //     console.log('delete Teacher success.')
+    //     done()
+    //   })
+    // })
   })
 
   context('# GET ', () => {
     it('獲取一位教師資料 GET /teachers/:t_id', (done) => {
-      // const t_id = Math.floor(Math.random() * 6) + 1
       api.get(`/teachers/${t_id}`)
         .expect(200)
         .end((err, res) => {
@@ -119,6 +132,30 @@ describe('Teachers 路由測試', () => {
   })
 
   context('# DELETE ', () => {
+    // before((done) => {
+    //  api.post('/teachers')
+    //     .set('Content-Type', 'application/json')
+    //     .send({
+    //       "name": "joe",
+    //       "phone": "0989898989",
+    //       "account": "joe",
+    //       "password": "joe1",
+    //       "email": "joe@com.com",
+    //       "address": "新竹市香山區食品街50號",
+    //       "avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+    //       "working": true
+    //     })
+    //     .expect(200)
+    //     .end((err, res) => {
+    //       if (err) {
+    //         done(err)
+    //       }
+    //       t_id = res.body.id
+    //       console.log('create Teacher success.')
+    //       done()
+    //     })
+    // })
+
     it('刪除一位教師資料 DELETE /teachers/:t_id', (done) => {
       api.delete(`/teachers/${t_id}`)
         .expect(200)
