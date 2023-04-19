@@ -5,13 +5,18 @@
     "title": "Subject System REST API",
     "description": ""
   },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
   "tags": [
     {
       "name": "Teacher",
       "description": "everything about teachers",
       "externalDocs": {
         "description": "Find out more",
-        "url": "https://subjectsystem.first-aws-project.com"
+        "url": "http://localhost:3000"
       }
     },
     {
@@ -19,7 +24,7 @@
       "description": "everything about students",
       "externalDocs": {
         "description": "Find out more",
-        "url": "https://subjectsystem.first-aws-project.com"
+        "url": "http://localhost:3000"
       }
     },
     {
@@ -27,7 +32,7 @@
       "description": "everything about departments",
       "externalDocs": {
         "description": "Find out more",
-        "url": "https://subjectsystem.first-aws-project.com"
+        "url": "http://localhost:3000"
       }
     },
     {
@@ -35,19 +40,22 @@
       "description": "everything about courses",
       "externalDocs": {
         "description": "Find out more",
-        "url": "https://subjectsystem.first-aws-project.com"
+        "url": "http://localhost:3000"
       }
     },
     {
       "name": "StudentCourse",
-      "description": "everything about studentcourses"
+      "description": "everything about studentcourses",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://localhost:3000"
+      }
     },
     {
       "name": "Home",
       "description": "Hello World"
     }
   ],
-  "securityDefinitions": {},
   "paths": {
     "/api/studentcourses/": {
       "post": {
@@ -982,6 +990,6 @@
   },
   "externalDocs": {
     "description": "Find out more about Subjectsystem",
-    "url": "https://subjectsystem.first-aws-project.com/api-doc"
+    "url": "http://localhost:3000/api-doc"
   }
 }

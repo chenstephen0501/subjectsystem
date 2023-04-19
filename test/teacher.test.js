@@ -1,16 +1,15 @@
 const { expect } = require('chai')
-const { application } = require('express')
 const supertest = require('supertest')
 
-// const app = require('../app')
-const api = supertest('http://localhost:3000/api')
-// const api = supertest(app)
+const app = require('../app')
+// const api = supertest('http://localhost:3000')
+const api = supertest(app)
 let t_id
 
 describe('Teachers 路由測試', () => {
   context('# GET ', () => {
     it('獲取所有教師資料 GET /teachers', (done) => {
-      api.get('/teachers')
+      api.get('/api/teachers')
         .expect(200)
         .end((err, res) => {
           if (err) {
@@ -44,7 +43,7 @@ describe('Teachers 路由測試', () => {
 
   context('# POST ', () => {
     it('新增一位教師資料 POST /teachers', (done) => {
-      api.post('/teachers')
+      api.post('/api/teachers')
         .set('Content-Type', 'application/json')
         .send({
           "name": "joe",
@@ -84,11 +83,46 @@ describe('Teachers 路由測試', () => {
           done()
         })
     })
+    after((done) => {
+      api.delete(`/api/teachers/${t_id}`)
+      .expect(200)
+      .end((err, res) => {
+        if (err) {
+          done(err)
+        }
+        console.log('delete Teacher success.')
+        done()
+      })
+    })
   })
 
   context('# GET ', () => {
+    before((done) => {
+      api.post('/api/teachers')
+        .set('Content-Type', 'application/json')
+        .send({
+          "name": "joe",
+          "phone": "0989898989",
+          "account": "joe",
+          "password": "joe1",
+          "email": "joe@com.com",
+          "address": "新竹市香山區食品街50號",
+          "avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+          "working": true
+        })
+        .expect(200)
+        .end((err, res) => {
+          if (err) {
+            done(err)
+          }
+          t_id = res.body.id
+          console.log('create Teacher success.')
+          done()
+        })
+    })
+    
     it('獲取一位教師資料 GET /teachers/:t_id', (done) => {
-      api.get(`/teachers/${t_id}`)
+      api.get(`/api/teachers/${t_id}`)
         .expect(200)
         .end((err, res) => {
           if (err) {
@@ -118,11 +152,46 @@ describe('Teachers 路由測試', () => {
           done()
         })
     })
+    
+    after((done) => {
+      api.delete(`/api/teachers/${t_id}`)
+        .expect(200)
+        .end((err, res) => {
+          if (err) {
+            done(err)
+          }
+          console.log('delete Teacher success.')
+          done()
+        })
+    })
   })
 
   context('# DELETE ', () => {
+    before((done) => {
+      api.post('/api/teachers')
+        .set('Content-Type', 'application/json')
+        .send({
+          "name": "joe",
+          "phone": "0989898989",
+          "account": "joe",
+          "password": "joe1",
+          "email": "joe@com.com",
+          "address": "新竹市香山區食品街50號",
+          "avatarImage": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/710.jpg",
+          "working": true
+        })
+        .expect(200)
+        .end((err, res) => {
+          if (err) {
+            done(err)
+          }
+          t_id = res.body.id
+          console.log('create Teacher success.')
+          done()
+        })
+    })
     it('刪除一位教師資料 DELETE /teachers/:t_id', (done) => {
-      api.delete(`/teachers/${t_id}`)
+      api.delete(`/api/teachers/${t_id}`)
         .expect(200)
         .end((err, res) => {
           if (err) {

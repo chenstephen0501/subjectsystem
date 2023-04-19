@@ -1,31 +1,31 @@
+// const swaggerAutogen = require('swagger-autogen')()       //  若沒放入參數會使用預設 openapi 的版本
 const option = {
   openapi: "3.0.3"
-}
-// const swaggerAutogen = require('swagger-autogen')()
-const swaggerAutogen = require('swagger-autogen')(option)
+}                                                           // 這裡我設為3.0.3的版本                                         
+const swaggerAutogen = require('swagger-autogen')(option)   // 然後把 option 這個參數放入 swagger-autogen 來使用。 
 
 const doc = {
-  info: {
+  info: {                                                           // 有關 API 的信息
     "version": "1.0.0",
     "title": "Subject System REST API",
     "description": ""
   },
-  externalDocs: {
+  externalDocs: {                                                  //  定義外部文件的說明
     description: "Find out more about Subjectsystem",
-    url: "https://subjectsystem.first-aws-project.com/api-doc"
+    url: "http://localhost:3000/api-doc"
   },
-  host: "http://subjectsystem.first-aws-project.com",
-  basePath: "/",
-  schemes: ['http', 'https'],
-  consumes: [],
-  produces: [],
-  tags: [
+  servers: [                                                      //  定義數組 API 所指定的 URL
+    {
+      url: "http://localhost:3000"
+    }
+  ],
+  tags: [                                                         //  為每個 API 操作分配一個列表
     {
       name: "Teacher",
       description: "everything about teachers",
       externalDocs: {
         description: "Find out more",
-        url: "https://subjectsystem.first-aws-project.com"
+        url: "http://localhost:3000"
       }
     },
     {
@@ -33,7 +33,7 @@ const doc = {
       description: "everything about students",
       externalDocs: {
         description: "Find out more",
-        url: "https://subjectsystem.first-aws-project.com"
+        url: "http://localhost:3000"
       }
     },
     {
@@ -41,7 +41,7 @@ const doc = {
       description: "everything about departments",
       externalDocs: {
         description: "Find out more",
-        url: "https://subjectsystem.first-aws-project.com"
+        url: "http://localhost:3000"
       }
     },
     {
@@ -49,21 +49,23 @@ const doc = {
       description: "everything about courses",
       externalDocs: {
         description: "Find out more",
-        url: "https://subjectsystem.first-aws-project.com"
+        url: "http://localhost:3000"
       }
     },
     {
       name: "StudentCourse",
-      description: "everything about studentcourses"
+      description: "everything about studentcourses",
+      externalDocs: {
+        description: "Find out more",
+        url: "http://localhost:3000"
+      }
     },
     {
       name: "Home",
       description: "Hello World"
     }
   ],
-  securityDefinitions: {},
-  definitions: {},
-  components: {
+  components: {  // 多個 API 的操作會有一些共同的參數或返回相同的回應結構為了避免程式碼重複，我們將通用定義放在全局的 components。
     schemas: {
       Teacher: {
         "id": 1,
@@ -116,7 +118,7 @@ const doc = {
   }
 }
 
-const outFile = './swagger_output.json'
-const endpointFiles = ['./app.js']
+const outFile = './swagger_output.json'                        // 輸出的文件名稱
+const endpointFiles = ['./app.js']                             //  這裡指要指向的 API ，在這裡我指向到 app.js
 
-swaggerAutogen(outFile, endpointFiles, doc)
+swaggerAutogen(outFile, endpointFiles, doc)                    // swaggerAutogen 的方法
