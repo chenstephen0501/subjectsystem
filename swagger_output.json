@@ -5,11 +5,6 @@
     "title": "Subject System REST API",
     "description": ""
   },
-  "servers": [
-    {
-      "url": "http://localhost:3000"
-    }
-  ],
   "tags": [
     {
       "name": "Teacher",
@@ -45,11 +40,7 @@
     },
     {
       "name": "StudentCourse",
-      "description": "everything about studentcourses",
-      "externalDocs": {
-        "description": "Find out more",
-        "url": "http://localhost:3000"
-      }
+      "description": "everything about studentcourses"
     },
     {
       "name": "Home",
@@ -66,7 +57,22 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "成功選擇這門課程!"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -76,15 +82,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "studentId": {
-                    "example": "any"
-                  },
-                  "courseId": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/StudentCourse"
               }
             }
           }
@@ -98,7 +96,22 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "成功修改課程。"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -111,13 +124,13 @@
                 "type": "object",
                 "properties": {
                   "studentId": {
-                    "example": "any"
+                    "example": 1
                   },
                   "courseId": {
-                    "example": "any"
+                    "example": 16
                   },
                   "newCourseId": {
-                    "example": "any"
+                    "example": 6
                   }
                 }
               }
@@ -144,24 +157,25 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "studentId": {
-                    "example": "any"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "成功刪除課程。"
+                    }
                   }
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -175,7 +189,14 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -185,12 +206,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "className": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/Course"
               }
             }
           }
@@ -219,6 +235,7 @@
           {
             "name": "c_id",
             "in": "path",
+            "example": 1,
             "required": true,
             "schema": {
               "type": "string"
@@ -227,7 +244,38 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "className": {
+                      "example": "古典文學"
+                    },
+                    "classTime": {
+                      "example": "2023-09-21T08:00:05.000Z"
+                    },
+                    "introduction": {
+                      "example": "李白詩、李商隱詩、宋詩選讀、蘇辛詞、清詞選、紅樓夢"
+                    },
+                    "departmentId": {
+                      "type": "string",
+                      "example": "1"
+                    },
+                    "teacherId": {
+                      "example": 1
+                    },
+                    "teacherName": {
+                      "example": "mary"
+                    },
+                    "departmentName": {
+                      "example": "中國文學系"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -251,10 +299,58 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "課程修改成功"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "className": {
+                    "example": "外國文學"
+                  },
+                  "classTime": {
+                    "example": "2023-09-21 08:00:05"
+                  },
+                  "introduction": {
+                    "example": "莎士比亞,羅密歐與茱麗葉"
+                  },
+                  "departmentId": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "teacherId": {
+                    "example": 1
+                  },
+                  "teacherName": {
+                    "example": "mary"
+                  },
+                  "departmentName": {
+                    "example": "中國文學系"
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -275,7 +371,22 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "刪除成功"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -318,7 +429,14 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -328,33 +446,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "account": {
-                    "example": "any"
-                  },
-                  "name": {
-                    "example": "any"
-                  },
-                  "phone": {
-                    "example": "any"
-                  },
-                  "password": {
-                    "example": "any"
-                  },
-                  "email": {
-                    "example": "any"
-                  },
-                  "address": {
-                    "example": "any"
-                  },
-                  "avatarImage": {
-                    "example": "any"
-                  },
-                  "working": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/Teacher"
               }
             }
           }
@@ -391,7 +483,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Teacher"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -415,7 +514,40 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "account": {
+                      "example": "sandy"
+                    },
+                    "name": {
+                      "example": "sandy"
+                    },
+                    "phone": {
+                      "example": 900000000
+                    },
+                    "password": {
+                      "example": "sandy1"
+                    },
+                    "email": {
+                      "example": "sandt@com.com"
+                    },
+                    "address": {
+                      "example": "新竹市東區南大路50號"
+                    },
+                    "avatarImage": {
+                      "example": "https://i.imgur.com/JL93zDj.jpe"
+                    },
+                    "working": {
+                      "example": false
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -428,7 +560,28 @@
                 "type": "object",
                 "properties": {
                   "account": {
-                    "example": "any"
+                    "example": "sandy"
+                  },
+                  "name": {
+                    "example": "sandy"
+                  },
+                  "phone": {
+                    "example": 900000000
+                  },
+                  "password": {
+                    "example": "sandy1"
+                  },
+                  "email": {
+                    "example": "sandt@com.com"
+                  },
+                  "address": {
+                    "example": "新竹市東區南大路50號"
+                  },
+                  "avatarImage": {
+                    "example": "https://i.imgur.com/JL93zDj.jpe"
+                  },
+                  "working": {
+                    "example": false
                   }
                 }
               }
@@ -453,7 +606,22 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "刪除成功"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -496,7 +664,14 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -506,33 +681,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "account": {
-                    "example": "any"
-                  },
-                  "name": {
-                    "example": "any"
-                  },
-                  "phone": {
-                    "example": "any"
-                  },
-                  "password": {
-                    "example": "any"
-                  },
-                  "email": {
-                    "example": "any"
-                  },
-                  "address": {
-                    "example": "any"
-                  },
-                  "avatarImage": {
-                    "example": "any"
-                  },
-                  "learning": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/Student"
               }
             }
           }
@@ -569,7 +718,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -593,7 +749,22 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "編輯成功"
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -608,8 +779,45 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "smith"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": "09712345678"
+                  },
                   "account": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "smith1"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "smith"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "smith@com.com"
+                  },
+                  "address": {
+                    "type": "string",
+                    "example": "新竹市香山區南門街130號"
+                  },
+                  "avatarImage": {
+                    "type": "string",
+                    "example": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/783.jpgg"
+                  },
+                  "learning": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "example": "2023-09-03 08:08:08"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "example": "2023-09-03 08:08:08"
                   }
                 }
               }
@@ -634,7 +842,22 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "刪除成功"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -677,7 +900,14 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Department"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -687,12 +917,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "example": "any"
-                  }
-                }
+                "$ref": "#/components/schemas/Department"
               }
             }
           }
@@ -729,7 +954,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Department"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -753,7 +985,22 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/josn": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "編輯成功"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -763,7 +1010,7 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "example": "any"
+                    "example": "美國文學系"
                   }
                 }
               }
@@ -788,7 +1035,22 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/josn": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "example": "success"
+                    },
+                    "message": {
+                      "example": "刪除成功"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -816,13 +1078,9 @@
       "Teacher": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "number",
-            "example": 1
-          },
           "name": {
             "type": "string",
-            "example": "mary"
+            "example": "judy"
           },
           "phone": {
             "type": "string",
@@ -830,21 +1088,21 @@
           },
           "account": {
             "type": "string",
-            "example": "mary"
+            "example": "judy"
           },
           "password": {
             "type": "string",
-            "example": "mary1"
+            "example": "judy1"
           },
           "email": {
             "type": "string",
-            "example": "mary@com.com"
+            "example": "judy@com.com"
           },
           "address": {
             "type": "string",
-            "example": "新竹市東區西門街50號"
+            "example": "新竹市東區北大路250號"
           },
-          "avatar_image": {
+          "avatarImage": {
             "type": "string",
             "example": "https://i.imgur.com/JL93zDj.jpeg"
           },
@@ -852,11 +1110,11 @@
             "type": "boolean",
             "example": true
           },
-          "created_at": {
+          "createdAt": {
             "type": "string",
             "example": "2021-08-08 08:08:08"
           },
-          "updated_at": {
+          "updatedAt": {
             "type": "string",
             "example": "2021-08-08 08:08:08"
           }
@@ -865,35 +1123,31 @@
       "Student": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "number",
-            "example": 1
-          },
           "name": {
             "type": "string",
-            "example": "mike"
+            "example": "bruce"
           },
           "phone": {
             "type": "string",
-            "example": "0977888999"
+            "example": "09712345678"
           },
           "account": {
             "type": "string",
-            "example": "mike"
+            "example": "bruce"
           },
           "password": {
             "type": "string",
-            "example": "mike1"
+            "example": "bruce1"
           },
           "email": {
             "type": "string",
-            "example": "mike@com.com"
+            "example": "bruce@com.com"
           },
           "address": {
             "type": "string",
-            "example": "新竹市西區南大路50號"
+            "example": "新竹市西區南門街130號"
           },
-          "avatar_image": {
+          "avatarImage": {
             "type": "string",
             "example": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/783.jpgg"
           },
@@ -901,11 +1155,11 @@
             "type": "boolean",
             "example": true
           },
-          "created_at": {
+          "createdAt": {
             "type": "string",
             "example": "2023-09-03 08:08:08"
           },
-          "updated_at": {
+          "updatedAt": {
             "type": "string",
             "example": "2023-09-03 08:08:08"
           }
@@ -914,19 +1168,15 @@
       "Department": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "number",
-            "example": 1
-          },
           "name": {
             "type": "string",
-            "example": "中國文學系"
+            "example": "外國文學系"
           },
-          "created_at": {
+          "createdAt": {
             "type": "string",
             "example": "2021-08-08 08:08:08"
           },
-          "updated_at": {
+          "updatedAt": {
             "type": "string",
             "example": "2021-08-08 08:08:08"
           }
@@ -935,52 +1185,44 @@
       "Course": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "number",
-            "example": 1
-          },
-          "class_name": {
+          "className": {
             "type": "string",
-            "example": "現代文學"
+            "example": "古典文學"
           },
-          "class_time": {
+          "classTime": {
             "type": "string",
-            "example": "2023-09-10 08:00:00"
+            "example": "2023-09-21 08:00:05"
           },
           "introduction": {
             "type": "string",
-            "example": "報導文學與新聞寫作、近現代翻譯文學、馬華文學、金庸武俠小說、近現代報刊與文化"
+            "example": "李白詩、李商隱詩、宋詩選讀、蘇辛詞、清詞選、紅樓夢"
           },
-          "department_id": {
+          "departmentId": {
             "type": "number",
             "example": 1
           },
-          "teacher_id": {
+          "teacherId": {
             "type": "number",
             "example": 1
           },
-          "created_at": {
+          "createdAt": {
             "type": "string",
-            "example": "2021-08-08 08:08:08"
+            "example": "2021-03-03 09:08:08"
           },
-          "updated_at": {
+          "updatedAt": {
             "type": "string",
-            "example": "2021-08-08 08:08:08"
+            "example": "2021-03-03 09:08:08"
           }
         }
       },
       "StudentCourse": {
         "type": "object",
         "properties": {
-          "id": {
+          "courseId": {
             "type": "number",
-            "example": 1
+            "example": 16
           },
-          "course_id": {
-            "type": "number",
-            "example": 1
-          },
-          "student_id": {
+          "studentId": {
             "type": "number",
             "example": 1
           }
@@ -991,5 +1233,11 @@
   "externalDocs": {
     "description": "Find out more about Subjectsystem",
     "url": "http://localhost:3000/api-doc"
-  }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "variables": {}
+    }
+  ]
 }
