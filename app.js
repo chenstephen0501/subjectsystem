@@ -17,7 +17,7 @@ app.use(express.json())
 app.use('/api', apis)
 
 app.listen(PORT, () => {
-  console.log(`subjectsystem running on ${BASE_URL}:${PORT}`)
+  console.log(`subjectsystem running on ${BASE_URL}:${PORT}/api-doc`)
 })
 
 module.exports = app
