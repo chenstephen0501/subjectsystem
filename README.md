@@ -32,8 +32,8 @@ SubjectSystem 是一個使用 Node.js 搭配 Express 框架 MySQL 資料庫建�
 
 ## 單元測試
 - npm run test <br>
-  ![restaurant-image](public/image/unit-test.jpg)
-  最後會看到 4 passing 測試的路由成功。
+  ![restaurant-image](public/image/test-ok.PNG)
+  最後會看到 4 passing 這表示所有的測試都通過。
  
 ## 開發環境
 - node 14.15.0
